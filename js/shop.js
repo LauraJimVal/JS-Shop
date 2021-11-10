@@ -84,7 +84,8 @@ function buy(id) {
         console.log(id); // Ver por consola el id del producto seleccionado
     }
     // 2. Add found product to the cartList array
-    cartList.push(id); // añadiendo el producto al array cartList
+    id = id - 1; // operación para que se añada el producto correcto al cartList
+    cartList.push(products[id]); // añadiendo el producto al array cartList
     console.log(cartList.length); // verificando la longitud del array cartList
     console.log(cartList); // Ver por consola el array cartList con los productos seleccionados
 }
