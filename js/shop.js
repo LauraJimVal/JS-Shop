@@ -87,12 +87,13 @@ function buy(id) {
     id = id - 1; // operación para que se añada el producto correcto al cartList
     cartList.push(products[id]); // añadiendo el producto al array cartList
     console.log(cartList.length); // verificando la longitud del array cartList
-    console.log(cartList); // Ver por consola el array cartList con los productos seleccionados
+    console.log(cartList); // ver por consola el array cartList con los productos seleccionados
 }
 
 // Exercise 2
 function cleanCart() {
-
+    cartList.length = 0; // reseteando a 0 el array cartList
+    console.log(cartList); // ver por consola el array cartList 
 }
 
 // Exercise 3
