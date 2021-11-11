@@ -100,27 +100,37 @@ function cleanCart() {
 
 // Exercise 3
 function calculateSubtotals() {
+
     let subtotalGrocery = 0; // inicializa la variable subtotalGrocery
     let subtotalBeauty = 0; // inicializa la variable subtotalBeauty
     let subtotalClothes = 0; // inicializa la variable subtotalClothes
     // 1. Create a for loop on the "cartList" array 
     for (let i = 0; i < cartList.length; i++){ // 
-        // console.log(cartList[i].price); //enseña el precio los productos
     // 2. Implement inside the loop an if...else or switch...case to add the quantities of each type of product, obtaining the subtotals: subtotalGrocery, subtotalBeauty and subtotalClothes
         if (cartList[i].type === "grocery"){ 
             subtotalGrocery = subtotalGrocery + cartList[i].price; // el precio se guarda en la variable subtotalGrocery para ir sumando los precios
-            console.log("grocery"); // enseña por consola que clase es
-            console.log(subtotalGrocery); // enseña por consola el total de la suma de los productos
+            //console.log("grocery"); // enseña por consola que clase es
+            //console.log(subtotalGrocery); // enseña por consola el total de la suma de los productos
+
         }else if(cartList[i].type === "beauty"){
             subtotalBeauty = subtotalBeauty + cartList[i].price; //el precio se guarda en la variable subtotalBeauty para ir sumando los precios
-            console.log("beauty"); // enseña por consola que clase es
-            console.log(subtotalBeauty); // enseña por consola el total de la suma de los productos
+            //console.log("beauty"); // enseña por consola que clase es
+            //console.log(subtotalBeauty); // enseña por consola el total de la suma de los productos
+
         }else if(cartList[i].type === "clothes"){
             subtotalClothes = subtotalClothes + cartList[i].price; //el precio se guarda en la variable subtotalClothes para ir sumando los precios
-            console.log("clothes"); // enseña por consola que clase es
-            console.log(subtotalClothes); // enseña por consola el total de la suma de los productos
+            //console.log("clothes"); // enseña por consola que clase es
+            //console.log(subtotalClothes); // enseña por consola el total de la suma de los productos
         }
     }
+    // Creando el objeto subtotals para almacenar los totales de cada categoría
+    var subtotals = {
+        Grocery: subtotalGrocery,
+        Beauty: subtotalBeauty,
+        Clothes: subtotalClothes
+        };
+
+        console.log(subtotals); // muestra por consola el objeto subtotals
     
 }
 
