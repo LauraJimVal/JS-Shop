@@ -159,7 +159,8 @@ function calculateSubtotals() {
 
 // Exercise 4
 function calculateTotal() {
-
+    // Calculate total price of the cart either using the "cartList" array
+    
     for(let i in cartList){ // recorrido por el array cartList
         total += cartList[i].price; // suma de cada precio de los productos en la cesta
     }
