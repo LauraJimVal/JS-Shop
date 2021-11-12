@@ -123,7 +123,8 @@ function calculateSubtotals() {
             //console.log(subtotalClothes); // enseña por consola el total de la suma de los productos
         }
     }
-    // Creando el objeto subtotals para almacenar los totales de cada categoría
+    // Creando el objeto subtotals para almacenar los precios totales de cada categoría
+    /*
     var subtotals = {
         Grocery: subtotalGrocery,
         Beauty: subtotalBeauty,
@@ -131,12 +132,39 @@ function calculateSubtotals() {
         };
 
         console.log(subtotals); // muestra por consola el objeto subtotals
+    */
     
+    // nuevo objeto subtotals para actualizar la informacion de la variable subtotal
+    var subtotals = {
+        grocery: {
+            value: subtotalGrocery, 
+            discount: 0
+        },
+        beauty: {
+            value: subtotalBeauty, 
+            discount: 0
+        },
+        clothes: {
+            value: subtotalClothes, 
+            discount: 0
+        },
+    };
+
+    // actualizar el objeto subtotal con la información del objeto subtotals
+    subtotal.grocery = subtotals.grocery; 
+    subtotal.beauty = subtotals.beauty;
+    subtotal.clothes = subtotals.clothes;
+    console.log(subtotal); // muestra por consola el objeto subtotal actualizado
 }
 
 // Exercise 4
 function calculateTotal() {
-    // Calculate total price of the cart either using the "cartList" array
+
+    for(let i in cartList){ // recorrido por el array cartList
+        total += cartList[i].price; // suma de cada precio de los productos en la cesta
+    }
+
+    console.log(total); // muestra por consola el precio total de la cesta
 }
 
 // Exercise 5
