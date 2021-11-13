@@ -4,55 +4,64 @@ var products = [
         id: 1,
         name: 'cooking oil',
         price: 10.5,
-        type: 'grocery'
+        type: 'grocery',
+        quantity: 1
     },
     {
         id: 2,
         name: 'Pasta',
         price: 6.25,
-        type: 'grocery'
+        type: 'grocery',
+        quantity: 1
     },
     {
         id: 3,
         name: 'Instant cupcake mixture',
         price: 5,
-        type: 'grocery'
+        type: 'grocery',
+        quantity: 1
     },
     {
         id: 4,
         name: 'All-in-one',
         price: 260,
-        type: 'beauty'
+        type: 'beauty',
+        quantity: 1
     },
     {
         id: 5,
         name: 'Zero Make-up Kit',
         price: 20.5,
-        type: 'beauty'
+        type: 'beauty',
+        quantity: 1
     },
     {
         id: 6,
         name: 'Lip Tints',
         price: 12.75,
-        type: 'beauty'
+        type: 'beauty',
+        quantity: 1
     },
     {
         id: 7,
         name: 'Lawn Dress',
         price: 15,
-        type: 'clothes'
+        type: 'clothes',
+        quantity: 1
     },
     {
         id: 8,
         name: 'Lawn-Chiffon Combo',
         price: 19.99,
-        type: 'clothes'
+        type: 'clothes',
+        quantity: 1
     },
     {
         id: 9,
         name: 'Toddler Frock',
         price: 9.99,
-        type: 'clothes'
+        type: 'clothes',
+        quantity: 1
     }
 ]
 // Array with products (objects) added directly with push(). Products in this array are repeated.
@@ -105,7 +114,7 @@ function calculateSubtotals() {
     let subtotalBeauty = 0; // inicializa la variable subtotalBeauty
     let subtotalClothes = 0; // inicializa la variable subtotalClothes
     // 1. Create a for loop on the "cartList" array 
-    for (let i = 0; i < cartList.length; i++){ // 
+    for (let i = 0; i < cartList.length; i++){ // recorre el array cartList
     // 2. Implement inside the loop an if...else or switch...case to add the quantities of each type of product, obtaining the subtotals: subtotalGrocery, subtotalBeauty and subtotalClothes
         if (cartList[i].type === "grocery"){ 
             subtotalGrocery = subtotalGrocery + cartList[i].price; // el precio se guarda en la variable subtotalGrocery para ir sumando los precios
@@ -170,8 +179,17 @@ function calculateTotal() {
 
 // Exercise 5
 function generateCart() {
-    // Using the "cartlist" array that contains all the items in the shopping cart, 
+    // Using the "cartlist" array that contains all the items in the shopping cart,
+    for (let i = 0; i < cartList.length; i++){ // recorre el array cartList 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+        if(cart.includes(cartList[i])){ // Si el array cart contiene algún elemento del array cartList
+            cartList[i].quantity = cartList[i].quantity + 1; // la cantidad del producto se incrementa en 1 si existen repeticiones
+        }else{ 
+            cart.push(cartList[i]); // generar el array cart sin elementos repetidos
+        }
+    }
+
+    console.log(cart); // ver por consola el array cart
 }
 
 // Exercise 6
