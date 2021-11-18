@@ -95,7 +95,7 @@ var subtotal = {
 };
 var total = 0;
 
-
+/* Comentado para borrarlo posteriormente si funciona addToCart()
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
@@ -108,7 +108,7 @@ function buy(id) {
     console.log(cartList.length); // verificando la longitud del array cartList
     console.log(cartList); // ver por consola el array cartList con los productos seleccionados
 }
-
+*/
 
 // Exercise 2
 function cleanCart() {
@@ -187,7 +187,7 @@ function calculateTotal() {
     console.log(total); // muestra por consola el precio total de la cesta
 }
 
-
+/* Comentado para eliminarlo más tarde si funciona addToCart()
 // Exercise 5
 function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart,
@@ -202,7 +202,7 @@ function generateCart() {
 
     console.log(cart); // ver por consola el array cart
 }
-
+*/
 
 // Exercise 6
 function applyPromotionsCart() {
@@ -233,8 +233,26 @@ function applyPromotionsCart() {
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
+   
+    for (let i = 0; i < products.length; i++){ // Haciendo un for para recorrer el array products
+        console.log(id); // Ver por consola el id del producto seleccionado
+    }
     
+    id = id - 1; // operación para que se añada el producto correcto al cartList
+    cartList.push(products[id]); // añadiendo el producto al array cartList
+
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+   
+    for (let i = 0; i < cartList.length; i++){ // recorre el array cartList 
+    
+        if(cart.includes(cartList[i])){ // Si el array cart contiene algún elemento del array cartList
+            cartList[i].quantity = cartList[i].quantity + 1; // la cantidad del producto se incrementa en 1 si existen repeticiones
+        }else{ 
+            cart.push(cartList[i]); // generar el array cart sin elementos repetidos
+        }
+    }
+
+    console.log(cart); // ver por consola el array cart
 }
 
 // Exercise 9
