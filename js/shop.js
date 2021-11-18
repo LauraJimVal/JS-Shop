@@ -5,63 +5,72 @@ var products = [
         name: 'cooking oil',
         price: 10.5,
         type: 'grocery',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 2,
         name: 'Pasta',
         price: 6.25,
         type: 'grocery',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 3,
         name: 'Instant cupcake mixture',
         price: 5,
         type: 'grocery',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 4,
         name: 'All-in-one',
         price: 260,
         type: 'beauty',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 5,
         name: 'Zero Make-up Kit',
         price: 20.5,
         type: 'beauty',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 6,
         name: 'Lip Tints',
         price: 12.75,
         type: 'beauty',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 7,
         name: 'Lawn Dress',
         price: 15,
         type: 'clothes',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 8,
         name: 'Lawn-Chiffon Combo',
         price: 19.99,
         type: 'clothes',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     },
     {
         id: 9,
         name: 'Toddler Frock',
         price: 9.99,
         type: 'clothes',
-        quantity: 1
+        quantity: 1,
+        subtotalWithDiscount: 0
     }
 ]
 // Array with products (objects) added directly with push(). Products in this array are repeated.
@@ -86,6 +95,7 @@ var subtotal = {
 };
 var total = 0;
 
+
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
@@ -97,8 +107,8 @@ function buy(id) {
     cartList.push(products[id]); // añadiendo el producto al array cartList
     console.log(cartList.length); // verificando la longitud del array cartList
     console.log(cartList); // ver por consola el array cartList con los productos seleccionados
-
 }
+
 
 // Exercise 2
 function cleanCart() {
@@ -177,6 +187,7 @@ function calculateTotal() {
     console.log(total); // muestra por consola el precio total de la cesta
 }
 
+
 // Exercise 5
 function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart,
@@ -192,15 +203,37 @@ function generateCart() {
     console.log(cart); // ver por consola el array cart
 }
 
+
 // Exercise 6
 function applyPromotionsCart() {
+    for (let i = 0; i < cartList.length; i++){ // recorre el array cartList 
+        if(cart.includes(cartList[i])){ // Si el array cart contiene algún elemento del array cartList
+            cartList[i].quantity = cartList[i].quantity + 1; // la cantidad del producto se incrementa en 1 si existen repeticiones
+        }else{ 
+            cart.push(cartList[i]); // generar el array cart sin elementos repetidos
+        }
+    }
+
+    console.log(cart); // ver por consola el array cart
+
     // Apply promotions to each item in the array "cart"
+    let i = 0; // declaración de la variable i
+
+    if(cart[i].quantity >= 3 & cart[i].id == 1){ // si en el array cart hay 3 o más productos con el id 1
+        cart[i].subtotalWithDiscount = 10; // se actualiza el campo subtotalWithDiscount para aplicar la promoción
+    }
+
+    if(cart[i].quantity >= 10 & cart[i].id == 3){ // si en el array cart hay 10 o más productos con el id 3
+        cart[i].subtotalWithDiscount = 3.32; // se actualiza el campo subtotalWithDiscount para aplicar la promoción
+    }
+
 }
 
 // Exercise 7
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
+    
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
 }
 
