@@ -18,12 +18,13 @@ function validate() {
 
     for(var x = 0; x < inputs.length - 1; x++){ // Recorrido por los inputs del formulario
     // Condición para que todos los campos sean obligatorios
-        if(inputs[x].value == ""){
-            alert("El campo " + inputs[x].name + " debe estar relleno");
-            document.querySelector("input").style.borderColor = "red";
-            return false;
-        }else{
-            document.querySelector("input").style.borderColor = "black";
+        while(inputs[x].value == ""){ // Mientras los campos estén vacios
+            alert("El campo " + inputs[x].name + " debe estar relleno"); // Mensaje de alerta
+            inputs[x].style.borderColor = "red"; // borde del imput rojo
+            return false; // todavía no se envia el formulario
+        }
+        if(inputs[x].value != ""){ // Si los campos estan rellenos
+            inputs[x].style.borderColor = "black"; // borde del imput negro
         }
     }
     return true;
