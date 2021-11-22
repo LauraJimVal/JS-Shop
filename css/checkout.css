@@ -6,3 +6,7 @@ body {
 #errorPassword, #errorName, #errorPhone {
     display: none;
 }
+
+#error{
+    margin-left: 3em;
+}
